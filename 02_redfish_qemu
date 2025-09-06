@@ -1,7 +1,7 @@
 # OpenBMC Redfish on QEMU 實驗紀錄
 
 ## 🎯 目標
-在 QEMU 上啟動 OpenBMC，並透過 Redfish API 讀取系統狀態與控制電源。
+在 QEMU 上啟動 OpenBMC，並透過 Redfish API 讀取系統狀態。
 
 ## ⚙️ 環境
 - Host: Ubuntu 20.04 / WSL2
@@ -21,16 +21,16 @@
 
 ## result
 {
-  "@odata.id": "/redfish/v1/Systems",
+  "@odata.id": "/redfish/v1/Systems",      // 代表這個 JSON 的 API endpoint 路徑。
   "@odata.type": "#ComputerSystemCollection.ComputerSystemCollection",
   "Members": [
     {
-      "@odata.id": "/redfish/v1/Systems/system"
-    }
+      "@odata.id": "/redfish/v1/Systems/system"  // 表示這個 BMC 只管理一台系統
   ],
   "Members@odata.count": 1,
   "Name": "Computer System Collection"
 }
+
 
 
 
