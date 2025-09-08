@@ -1,1 +1,14 @@
+## OpenBMC DBus on QEMU 實驗紀錄
 
+🎯 目標
+  在 QEMU 上啟動 OpenBMC，並透過 DBus 工具 (busctl) 學習查詢、監聽與操作系統狀態。
+
+🌸 環境
+  Host: Ubuntu 20.04 / WSL2
+  QEMU target: qemuarm
+  Image: obmc-phosphor-image
+  Networking: slirp (host port forwarding)
+  Tool: busctl, obmcutil, ssh
+
+🔑 步驟
+1. 啟動 QEMU
