@@ -25,7 +25,7 @@ Tools: git, bitbake, qemu, ssh
 5. 編譯映像
   bitbake obmc-phosphor-image
 6. 啟動 QEMU
-  runqemu qemuarm obmc-phosphor-image slirp hostfwd=tcp:127.0.0.1:2443-:443
+  runqemu qemuarm obmc-phosphor-image slirp hostfwd=tcp:127.0.0.1:2443-:22
 
 ✅ Result
   runqemu - INFO - Running MACHINE=qemuarm bitbake -e  obmc-phosphor-image...
