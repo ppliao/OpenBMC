@@ -23,21 +23,21 @@ Tools: git, bitbake, qemu, ssh
 3. 初始化環境
   . setup qemuarm
 5. 編譯映像
-bitbake obmc-phosphor-image
+  bitbake obmc-phosphor-image
 6. 啟動 QEMU
-runqemu qemuarm obmc-phosphor-image slirp hostfwd=tcp:127.0.0.1:2443-:443
+  runqemu qemuarm obmc-phosphor-image slirp hostfwd=tcp:127.0.0.1:2443-:443
 
 ✅ Result
-runqemu - INFO - Running MACHINE=qemuarm bitbake -e  obmc-phosphor-image...
-runqemu - INFO - Continuing with the following parameters:
-KERNEL: [/home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm/zImage]
-MACHINE: [qemuarm]
-FSTYPE: [ext4]
-ROOTFS: [/home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm/obmc-phosphor-image-qemuarm.ext4]
-CONFFILE: [/home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm/obmc-phosphor-image-qemuarm.qemuboot.conf]
+  runqemu - INFO - Running MACHINE=qemuarm bitbake -e  obmc-phosphor-image...
+  runqemu - INFO - Continuing with the following parameters:
+  KERNEL: [/home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm/zImage]
+  MACHINE: [qemuarm]
+  FSTYPE: [ext4]
+  ROOTFS: [/home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm/obmc-phosphor-image-qemuarm.ext4]
+  CONFFILE: [/home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm/obmc-phosphor-image-qemuarm.qemuboot.conf]
 
-runqemu - INFO - Network configuration: ip=dhcp
-runqemu - INFO - Port forward: hostfwd=tcp:127.0.0.1:2222-:22 hostfwd=tcp:127.0.0.1:2323-:23
-runqemu - INFO - Running /home/tzuyi/open/openbmc/build/qemuarm/tmp/work/x86_64-linux/qemu-helper-native/1.0/recipe-sysroot-native/usr/bin/qemu-system-arm -device virtio-net-device,netdev=net0,mac=52:54:00:12:35:02 -netdev user,id=net0,hostfwd=tcp:127.0.0.1:2222-:22,hostfwd=tcp:127.0.0.1:2323-:23,tftp=/home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm -object rng-random,filename=/dev/urandom,id=rng0 -device virtio-rng-pci,rng=rng0 -drive id=disk0,file=/home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm/obmc-phosphor-image-qemuarm.ext4,if=none,format=raw -device virtio-blk-device,drive=disk0 -device qemu-xhci -device usb-tablet -device usb-kbd  -machine virt,highmem=off -cpu cortex-a15 -smp 4 -m 256 -serial mon:vc -serial null -display none -device virtio-gpu-pci -kernel /home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm/zImage -append 'root=/dev/vda rw  mem=256M ip=dhcp swiotlb=0 '
+  runqemu - INFO - Network configuration: ip=dhcp
+  runqemu - INFO - Port forward: hostfwd=tcp:127.0.0.1:2222-:22 hostfwd=tcp:127.0.0.1:2323-:23
+  runqemu - INFO - Running /home/tzuyi/open/openbmc/build/qemuarm/tmp/work/x86_64-linux/qemu-helper-native/1.0/recipe-sysroot-native/usr/bin/qemu-system-arm -device virtio-net-device,netdev=net0,mac=52:54:00:12:35:02 -netdev user,id=net0,hostfwd=tcp:127.0.0.1:2222-:22,hostfwd=tcp:127.0.0.1:2323-:23,tftp=/home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm -object rng-random,filename=/dev/urandom,id=rng0 -device virtio-rng-pci,rng=rng0 -drive id=disk0,file=/home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm/obmc-phosphor-image-qemuarm.ext4,if=none,format=raw -device virtio-blk-device,drive=disk0 -device qemu-xhci -device usb-tablet -device usb-kbd  -machine virt,highmem=off -cpu cortex-a15 -smp 4 -m 256 -serial mon:vc -serial null -display none -device virtio-gpu-pci -kernel /home/tzuyi/open/openbmc/build/qemuarm/tmp/deploy/images/qemuarm/zImage -append 'root=/dev/vda rw  mem=256M ip=dhcp swiotlb=0 '
 
-runqemu - INFO - Host uptime: 20041.80
+  runqemu - INFO - Host uptime: 20041.80
