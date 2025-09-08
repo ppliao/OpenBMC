@@ -11,4 +11,25 @@
   Tool: busctl, obmcutil, ssh
 
 🔑 步驟
-1. 啟動 QEMU
+1. SSH 進入 Guest(BMC)
+  ssh -p 2222 root@127.0.0.1
+  cat /etc/os-release   # 確認是在 OpenBMC VM
+
+2. 查看 DBus 服務
+  busctl list | grep xyz.openbmc_project.State
+
+3. 查看物件樹與介面
+  busctl tree xyz.openbmc_project.State.Host
+  busctl introspect xyz.openbmc_project.State.Host /xyz/openbmc_project/state/host0
+
+4. 監聽事件
+  busctl monitor xyz.openbmc_project.State.Host
+
+5. 觸發狀態變化
+  obmcutil poweron
+  obmcutil powerstate
+
+6. 讀取屬性
+  busctl get-property xyz.openbmc_project.State.Host \
+  /xyz/openbmc_project/state/host0 \
+  xyz.openbmc_project.State.Host CurrentHostState
