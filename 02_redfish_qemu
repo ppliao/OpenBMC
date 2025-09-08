@@ -13,10 +13,10 @@
 ## 步驟
 1. 啟動QEMU
    $ . setup qemuarm
-   $ rumqemu qemuarm obmc
+   $ runqemu qemuarm obmc-phosphor-image slirp
 2. setup port   
    $ ssh -N -p 2222 -L 8443:127.0.0.1:443 root@127.0.0.1          //建立 VM port fowarding
-   $ curl -k https://127.0.0.1:8443/redfish/v1                     //test redfish entrace
+   $ curl -k https://127.0.0.1:8443/redfish/v1                     //test host redfish entrace
    $ curl -k -u root:0penBmc https://127.0.0.1:8443/redfish/v1/Systems
 
 ## result
@@ -143,3 +143,5 @@
     "@odata.id": "/redfish/v1/Systems/system/Storage"
   },
   "SystemType": "Physical"
+
+  ---------------------------------------------------------------------------
