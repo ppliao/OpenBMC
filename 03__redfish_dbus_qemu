@@ -1,12 +1,67 @@
 ## OpenBMC Redfish ↔ DBus 實作記錄
 
 🍓 目標
-透過 Redfish 與 DBus 驗證 PowerState 對照
-讀取並清空 BMC 的 EventLog / Journal，理解 Redfish 與 DBus/系統工具的分工
+1. 透過 Redfish 與 DBus 驗證 PowerState 對照
 
 🌸 環境
-Host：Ubuntu 20.04 / WSL2
-QEMU target：qemuarm
-Image：obmc-phosphor-image
-Tools：curl、jq、busctl、journalctl、ssh
+  Host：Ubuntu 20.04 / WSL2
+  QEMU target：qemuarm
+  Image：obmc-phosphor-image
+  Tools：curl、jq、busctl、journalctl、ssh
 
+🔑 步驟
+1. SSH 進入 Guest(BMC)
+  ssh -p 2222 root@127.0.0.1
+
+2. Redfish 查電源狀態
+  curl -k -u root:0penBmc \
+  https://localhost:2443/redfish/v1/Systems/system \
+| jq '.PowerState'
+
+3. DBus 查電源狀態
+  busctl get-property xyz.openbmc_project.State.Chassis \
+  /xyz/openbmc_project/state/chassis0 \
+  xyz.openbmc_project.State.Chassis CurrentPowerState
+
+✅ Result
+tzuyi@PHT-BB19964-NB:~/open/openbmc$ curl -k -u root:0penBmc https://localhost:2443/redfish/v1/Systems/system | jq '.PowerState'
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  2487  100  2487    0     0   5245      0 --:--:-- --:--:-- --:--:--  5235
+"Off"
+
+root@qemuarm:~# busctl get-property xyz.openbmc_project.State.Chassis \
+>   /xyz/openbmc_project/state/chassis0 \
+>   xyz.openbmc_project.State.Chassis CurrentPowerState
+s "xyz.openbmc_project.State.Chassis.PowerState.Off"
+
+-----------------------------------------------------------------------------
+
+🍓 目標
+1. 讀取並清空 BMC 的 EventLog / Journal，理解 Redfish 與 DBus/系統工具的分工
+
+🔑 步驟
+1. Redfish 讀取 Journal/Entries 總數
+  curl -k -u root:0penBmc \
+  https://localhost:2443/redfish/v1/Managers/bmc/LogServices/Journal/Entries \
+  | jq '.Members | length'
+
+2. 用 DBus 清空（一定可行）
+  busctl call xyz.openbmc_project.Logging \
+  /xyz/openbmc_project/logging \
+  xyz.openbmc_project.Collection.DeleteAll DeleteAll
+
+3. 驗證
+  curl -k -u root:0penBmc \
+  https://localhost:2443/redfish/v1/Managers/bmc/LogServices/Journal/Entries \
+  | jq '.Members | length'
+
+✅ Result
+  tzuyi@PHT-BB19964-NB:/mnt/c/Users/User$ curl -k -u root:0penBmc https://localhost:2443/redfish/v1/Managers/bmc/LogServices/EventLog/Entries \
+  | jq '.Members | length'
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  100   577  100   577    0     0   1420      0 --:--:-- --:--:-- --:--:--  1417
+  0
+
+------------------------------------------------------------------------------------
