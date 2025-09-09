@@ -103,12 +103,3 @@ Type=signal  Endian=l  Flags=1  Version=1 Cookie=6310  Timestamp="Mon 2025-09-08
   };
 
 ----------------------------------------------------------------------------------------------------
-// 跳到 redfish 章節再回頭看這個
-🎯 目標
-在 QEMU 上啟動 OpenBMC，並透過 Redfish API 與 DBus 操作日誌 (LogService)，驗證兩者關聯。
-
-🔑 步驟
-1. 觸發一筆日誌
-（Host 上故意打錯密碼，讓 bmcweb 記一筆登入失敗）：
-curl -k -u root:WRONGPASS https://localhost:2443/redfish/v1/Systems -o /dev/null
-
