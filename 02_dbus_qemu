@@ -12,7 +12,8 @@
 
 🔑 步驟
 1. SSH 進入 Guest(BMC)
-  ssh -p 2222 root@127.0.0.1
+  ssh -N -L 2443:127.0.0.1:443 -p 2222 root@127.0.0.1  // let host port send to bmc 
+  ssh -p 2222 root@127.0.0.1     //to bmc
   cat /etc/os-release   # 確認是在 OpenBMC VM
 
 2. 查看 DBus 服務
