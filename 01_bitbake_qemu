@@ -23,7 +23,7 @@ Tools: git, bitbake, qemu, ssh
 3. 初始化環境
   . setup qemuarm
 5. 編譯映像
-  itbake obmc-phosphor-image
+  bitbake obmc-phosphor-image
 6. 啟動 QEMU
   runqemu qemuarm obmc-phosphor-image slirp hostfwd=tcp:127.0.0.1:2443-:22
 
