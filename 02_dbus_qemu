@@ -84,7 +84,7 @@ xyz.openbmc_project.State.OperatingSystem.Status interface -         -          
 .OperatingSystemState                            property  s         "xyz.openbmc_project.State.OperatingS... emits-change writable
 
 ----------------------------------------------------------------------------------------------------------
-4.  busctl monitor xyz.openbmc_project.State.Host
+4.  root@qemuarm:~# busctl monitor xyz.openbmc_project.State.Host
 
 Type=signal  Endian=l  Flags=1  Version=1 Cookie=6310  Timestamp="Mon 2025-09-08 07:08:39.599320 UTC"
   Sender=:1.9  Path=/xyz/openbmc_project/metric/bmc/cpu/total  Interface=org.freedesktop.DBus.Properties  Member=PropertiesChanged
