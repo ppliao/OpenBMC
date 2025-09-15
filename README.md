@@ -43,6 +43,7 @@
     - **Entity-Manager & Fru-Device 架構**：事件驅動與 DBus Signal 溝通，而不是輪詢
 
  ---
+ ## 架構流程
  [硬體層]
 FRU EEPROM (I²C bus, 工廠燒錄 FRU 資料)
     
