@@ -46,7 +46,7 @@
 FRU EEPROM (I²C bus, 工廠燒錄 FRU 資料)
     │
     ▼
-Device Tree (DTS → DTB)  //Where is EEPROM
+Device Tree (DTS → DTB) 
   - 描述 bus/address/driver
   - 例如: eeprom@50 { compatible="atmel,24c64"; reg=<0x50>; }
     │
