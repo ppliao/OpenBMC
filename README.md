@@ -41,5 +41,5 @@
     - **FRU / Inventory**：Fru-Device 掃描 EEPROM → Entity-Manager 整合 JSON → D-Bus → Redfish/IPMI 查詢  
     - **Sensors**：PMBus/I²C → DBus → Redfish/IPMI  
     - **Entity-Manager & Fru-Device 架構**：事件驅動與 DBus Signal 溝通，而不是輪詢
-    - FRU EEPROM -> DTS -> DBUS -> Entity-Manager -> DBus -> Redfish 
+    - DTS -> Kernel -> FRU EEPROM -> DBUS -> Entity-Manager -> DBus -> Redfish 
 
