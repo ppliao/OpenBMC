@@ -44,7 +44,7 @@
 
  ---
  ## 架構流程
- [硬體層]
+ ### [硬體層]
 FRU EEPROM (I²C bus, 工廠燒錄 FRU 資料)
     
 Device Tree (DTS → DTB)  //Where is EEPROM
@@ -58,7 +58,7 @@ getBusFRUs()
   - 掃描位址 0x03–0x77
   - 從 sysfs 嘗試讀取 FRU 資料
 
-[掃描管理層]
+### [掃描管理層]
 findI2CDevices()
   - 呼叫 getBusFRUs for 每個 bus
   - 整理成 busmap
@@ -66,7 +66,7 @@ findI2CDevices()
 busmap (資料結構)
   bus_id → { addr → DeviceInfo }
 
-[掛載層]
+### [掛載層]
 rescanBusses()
   - 遍歷 busmap
   - addFruObjectToDbus()
@@ -74,7 +74,7 @@ rescanBusses()
 D-Bus FruDevice 物件
   + 發送事件通知 (InterfacesAdded/Removed)
 
-[管理層 - EntityManager]
+### [管理層 - EntityManager]
 讀取 JSON 配置
   - Probe 條件判斷 (BOARD_PRODUCT_NAME, BUS/ADDR…)
   - 配對/命名物件 (psu0, fan0, dimm0…)
@@ -83,7 +83,7 @@ D-Bus FruDevice 物件
 D-Bus Inventory 物件
   (/xyz/openbmc_project/inventory/... )
 
-[對外層]
+### [對外層]
 Redfish / IPMI
   - 查詢 Inventory
   - 回傳 JSON / CLI 結果
