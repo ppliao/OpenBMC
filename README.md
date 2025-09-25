@@ -19,7 +19,7 @@
     - `busctl list/tree/introspect` 查詢服務與介面  
     - `busctl monitor` 監聽事件  
     - `obmcutil poweron` 驅動狀態變化  
-    - `busctl get-property` 讀取屬性
+    - `obmcutil state` 讀取屬性
 
 - **03_redfish_qemu.md**  
   - 使用 `curl` 測試 **Redfish API** 介面  
