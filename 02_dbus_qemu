@@ -26,7 +26,7 @@
 4. 監聽 HOST 事件
   busctl monitor xyz.openbmc_project.State.Host
 
-5. 觸發狀態變化
+5. 使用obmcutil小工具 觸發狀態變化
   obmcutil poweron
   obmcutil powerstate
 
