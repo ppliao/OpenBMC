@@ -16,15 +16,15 @@
   ssh -p 2222 root@127.0.0.1     //to bmc
   cat /etc/os-release   # 確認是在 OpenBMC VM
 
- /////// DBus 有很多服務 (sensors, FRU / Inventory, Log, network...) 這邊以狀態為例///////////
+ /////// DBus 有很多服務 (sensors, FRU / Inventory, Log, network...) 這邊以狀態為例 ///////////
 2. 查看 DBus 狀態 服務 
   busctl list | grep xyz.openbmc_project.State
 
-3. 查看 狀態服務裡 HOST 物件樹與介面
+3. 查看 狀態服務裡HOST 的物件樹與介面
   busctl tree xyz.openbmc_project.State.Host
   busctl introspect xyz.openbmc_project.State.Host /xyz/openbmc_project/state/host0
 
-4. 監聽 狀態服務裡 HOST 事件
+4. 監聽 狀態服務裡HOST 的事件
   busctl monitor xyz.openbmc_project.State.Host
 
 -查看 property // busctl get-property <SERVICE> <OBJECT_PATH> <INTERFACE> <PROPERTY>
@@ -105,10 +105,52 @@ Type=signal  Endian=l  Flags=1  Version=1 Cookie=6310  Timestamp="Mon 2025-09-08
   };
 
 ----------------------------------------------------------------------------------------------------
+
 5. root@qemuarm:~# obmcutil state
 
 CurrentBMCState     : xyz.openbmc_project.State.BMC.BMCState.Quiesced
 CurrentPowerState   : xyz.openbmc_project.State.Chassis.PowerState.Off
 CurrentHostState    : xyz.openbmc_project.State.Host.HostState.Off
 BootProgress        : xyz.openbmc_project.State.Boot.Progress.ProgressStages.UnspecifiedOperatingSystemState: xyz.openbmc_project.State.OperatingSystem.Status.OSStatus.Inactive
+
+======================================================================================================================================================================================
+🎯 目標
+ 在 QEMU 上啟動 OpenBMC，並透過 DBus 工具 (busctl) 查詢有哪些 LOG Service。
+
+1. 查看 DBus Log 服務
+root@qemuarm:~# busctl list | grep xyz.openbmc_project.Logging
+
+2. 查看 DBus Log service 裡 Log 的物件樹
+busctl tree xyz.openbmc_project.Logging
+
+----------------------------------------------------------------
+✅ Result
+1.
+
+:1.13                                                   223 phosphor-log-ma root             :1.13         xyz.openbmc_project.Logging.service                 -       -
+xyz.openbmc_project.Logging                             223 phosphor-log-ma root             :1.13         xyz.openbmc_project.Logging.service                 -       -
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.
+
+root@qemuarm:~# busctl tree xyz.openbmc_project.Logging
+`- /xyz
+  `- /xyz/openbmc_project
+    `- /xyz/openbmc_project/logging
+      |- /xyz/openbmc_project/logging/entry
+      | |- /xyz/openbmc_project/logging/entry/1
+      | |- /xyz/openbmc_project/logging/entry/10
+      | |- /xyz/openbmc_project/logging/entry/2
+      | |- /xyz/openbmc_project/logging/entry/3
+      | |- /xyz/openbmc_project/logging/entry/4
+      | |- /xyz/openbmc_project/logging/entry/5
+      | |- /xyz/openbmc_project/logging/entry/6
+      | |- /xyz/openbmc_project/logging/entry/7
+      | |- /xyz/openbmc_project/logging/entry/8
+      | `- /xyz/openbmc_project/logging/entry/9
+      `- /xyz/openbmc_project/logging/internal
+        `- /xyz/openbmc_project/logging/internal/manager
+
+---------------------------------------------------------------
+
 
