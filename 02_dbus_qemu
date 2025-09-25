@@ -28,7 +28,7 @@
   busctl monitor xyz.openbmc_project.State.Host
 
 -查看 property // busctl get-property <SERVICE> <OBJECT_PATH> <INTERFACE> <PROPERTY>
-5. 使用 obmcutil 小工具 查看狀態
+5. 使用 obmcutil 小工具 查看狀態服務的狀態
   obmcutil state
 
 6. 讀取 state HOST service 物件(host0)的 CurrentHostState 的屬性
