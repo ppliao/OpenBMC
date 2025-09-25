@@ -27,7 +27,8 @@
   busctl monitor xyz.openbmc_project.State.Host
 
 -查看 property // busctl get-property <SERVICE> <OBJECT_PATH> <INTERFACE> <PROPERTY>
-5. 使用 obmcutil 小工具 觸發狀態變化
+5. 使用 obmcutil 小工具 查看狀態
+  obmcutil poweron
   obmcutil poweron
   obmcutil powerstate
 
@@ -105,3 +106,10 @@ Type=signal  Endian=l  Flags=1  Version=1 Cookie=6310  Timestamp="Mon 2025-09-08
   };
 
 ----------------------------------------------------------------------------------------------------
+5. root@qemuarm:~# obmcutil state
+
+CurrentBMCState     : xyz.openbmc_project.State.BMC.BMCState.Quiesced
+CurrentPowerState   : xyz.openbmc_project.State.Chassis.PowerState.Off
+CurrentHostState    : xyz.openbmc_project.State.Host.HostState.Off
+BootProgress        : xyz.openbmc_project.State.Boot.Progress.ProgressStages.UnspecifiedOperatingSystemState: xyz.openbmc_project.State.OperatingSystem.Status.OSStatus.Inactive
+
