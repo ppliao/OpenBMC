@@ -31,7 +31,7 @@
 5. 使用 obmcutil 小工具 查看狀態
   obmcutil state
 
-6. 讀取 state HOST service 物件的 屬性
+6. 讀取 state HOST service 物件(host0)的 CurrentHostState 的屬性
   busctl get-property xyz.openbmc_project.State.Host \
   /xyz/openbmc_project/state/host0 \
   xyz.openbmc_project.State.Host CurrentHostState
@@ -112,6 +112,12 @@ CurrentBMCState     : xyz.openbmc_project.State.BMC.BMCState.Quiesced
 CurrentPowerState   : xyz.openbmc_project.State.Chassis.PowerState.Off
 CurrentHostState    : xyz.openbmc_project.State.Host.HostState.Off
 BootProgress        : xyz.openbmc_project.State.Boot.Progress.ProgressStages.UnspecifiedOperatingSystemState: xyz.openbmc_project.State.OperatingSystem.Status.OSStatus.Inactive
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6. root@qemuarm:~# busctl get-property xyz.openbmc_project.State.Host \ /xyz/openbmc_project/state/host0 \ xyz.openbmc_project.State.Host CurrentHostState
+
+s "xyz.openbmc_project.State.Host.HostState.Off"
 
 ======================================================================================================================================================================================
 🎯 目標
