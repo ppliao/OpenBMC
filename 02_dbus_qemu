@@ -1,7 +1,7 @@
 ## OpenBMC DBus on QEMU 實驗紀錄
 
 🎯 目標
-  在 QEMU 上啟動 OpenBMC，並透過 DBus 工具 (busctl) 學習查詢、監聽與操作系統狀態。
+  在 QEMU 上啟動 OpenBMC，並透過 DBus 工具 (busctl) 學習查詢、監聽與操作系統 狀態服務。
 
 🌸 環境
   Host: Ubuntu 20.04 / WSL2
@@ -16,7 +16,7 @@
   ssh -p 2222 root@127.0.0.1     //to bmc
   cat /etc/os-release   # 確認是在 OpenBMC VM
 
- /////// DBus 有很多服務 (sensors, FRU / Inventory, Log, network...) 這邊以狀態為例 ///////////
+ /////// DBus 有很多服務 (sensors, FRU / Inventory, Log, network...) 這邊以 狀態服務 為例 ///////////
 2. 查看 DBus 狀態 服務 
   busctl list | grep xyz.openbmc_project.State
 
