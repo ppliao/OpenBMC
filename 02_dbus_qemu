@@ -20,18 +20,18 @@
 2. 查看 DBus 狀態 服務 
   busctl list | grep xyz.openbmc_project.State
 
-3. 查看 狀態服務裡HOST 的物件樹與介面
+3. 查看 state HOST service 的物件樹與介面
   busctl tree xyz.openbmc_project.State.Host
   busctl introspect xyz.openbmc_project.State.Host /xyz/openbmc_project/state/host0
 
-4. 監聽 狀態服務裡HOST 的事件
+4. 監聽 state HOST service 的事件
   busctl monitor xyz.openbmc_project.State.Host
 
 -查看 property // busctl get-property <SERVICE> <OBJECT_PATH> <INTERFACE> <PROPERTY>
 5. 使用 obmcutil 小工具 查看狀態
   obmcutil state
 
-6. 讀取屬性
+6. 讀取 state HOST service 物件的 屬性
   busctl get-property xyz.openbmc_project.State.Host \
   /xyz/openbmc_project/state/host0 \
   xyz.openbmc_project.State.Host CurrentHostState
@@ -120,7 +120,7 @@ BootProgress        : xyz.openbmc_project.State.Boot.Progress.ProgressStages.Uns
 1. 查看 DBus Log 服務
 root@qemuarm:~# busctl list | grep xyz.openbmc_project.Logging
 
-2. 查看 DBus Log service 裡 Log 的物件樹
+2. 查看 DBus Log service 物件樹
 busctl tree xyz.openbmc_project.Logging
 
 ----------------------------------------------------------------
