@@ -26,7 +26,7 @@
 4. 監聽 HOST 事件
   busctl monitor xyz.openbmc_project.State.Host
 
-### 查看 property busctl get-property <SERVICE> <OBJECT_PATH> <INTERFACE> <PROPERTY>
+-查看 property // busctl get-property <SERVICE> <OBJECT_PATH> <INTERFACE> <PROPERTY>
 5. 使用 obmcutil 小工具 觸發狀態變化
   obmcutil poweron
   obmcutil powerstate
