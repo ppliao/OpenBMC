@@ -28,7 +28,7 @@
 
 -查看 property // busctl get-property <SERVICE> <OBJECT_PATH> <INTERFACE> <PROPERTY>
 5. 使用 obmcutil 小工具 查看狀態
-  obmcutil poweron
+  obmcutil state
   obmcutil poweron
   obmcutil powerstate
 
