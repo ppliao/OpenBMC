@@ -40,7 +40,7 @@
     - **Host Power Control**：Redfish/IPMI → DBus → State Manager → GPIO → Host Power Good  
     - **FRU / Inventory**：Fru-Device 掃描 EEPROM → Entity-Manager 整合 JSON → D-Bus → Redfish/IPMI 查詢  
     - **Sensors**：PMBus/I²C → DBus → Redfish/IPMI  
-    - **Entity-Manager & Fru-Device 架構**：事件驅動與 DBus Signal 溝通，而不是輪詢
+    - **DTS Kernel & Entity-Manager & Fru-Device 架構**：事件驅動與 DBus Signal 溝通，而不是輪詢
 
  ---
  ## 架構流程
