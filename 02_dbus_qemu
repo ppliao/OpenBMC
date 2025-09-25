@@ -36,7 +36,7 @@
   xyz.openbmc_project.State.Host CurrentHostState
 
 ✅ Result
-1.  root@qemuarm:~# busctl list | grep xyz.openbmc_project.State
+2.  root@qemuarm:~# busctl list | grep xyz.openbmc_project.State
 
 :1.21                                                  260 phosphor-chassi root             :1.21         xyz.openbmc_project.State.Chassis@0.service         -       -
 :1.48                                                  316 phosphor-bmc-st root             :1.48         xyz.openbmc_project.State.BMC.service               -       -
@@ -48,7 +48,7 @@ xyz.openbmc_project.State.Host                         323 phosphor-host-s root 
 xyz.openbmc_project.State.Host0                        323 phosphor-host-s root             :1.50         xyz.openbmc_project.State.Host@0.service 
 
 --------------------------------------------------------------------------------------------------------------
-2.  root@qemuarm:~# busctl tree xyz.openbmc_project.State.Host
+3-1  root@qemuarm:~# busctl tree xyz.openbmc_project.State.Host
 
 `- /xyz
   `- /xyz/openbmc_project
@@ -56,7 +56,7 @@ xyz.openbmc_project.State.Host0                        323 phosphor-host-s root 
       `- /xyz/openbmc_project/state/host0
 
 -------------------------------------------------------------------------------------------------------------
-3.  root@qemuarm:~# busctl introspect xyz.openbmc_project.State.Host /xyz/openbmc_project/state/host0
+3-2  root@qemuarm:~# busctl introspect xyz.openbmc_project.State.Host /xyz/openbmc_project/state/host0
 
 NAME                                             TYPE      SIGNATURE RESULT/VALUE                             FLAGS
 org.freedesktop.DBus.Introspectable              interface -         -                                        -
