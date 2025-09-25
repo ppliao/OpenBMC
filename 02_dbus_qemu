@@ -19,11 +19,11 @@
 2. 查看 DBus 狀態服務
   busctl list | grep xyz.openbmc_project.State
 
-3. 查看物件樹與介面
+3. 查看 HOST 物件樹與介面
   busctl tree xyz.openbmc_project.State.Host
   busctl introspect xyz.openbmc_project.State.Host /xyz/openbmc_project/state/host0
 
-4. 監聽事件
+4. 監聽 HOST 事件
   busctl monitor xyz.openbmc_project.State.Host
 
 5. 觸發狀態變化
