@@ -30,6 +30,7 @@
   obmcutil state
 
 -查看 property // busctl get-property <SERVICE> <OBJECT_PATH> <INTERFACE> <PROPERTY>-
+
 6. 讀取 HOST service host0物件的 CurrentHostState 的屬性
   busctl get-property xyz.openbmc_project.State.Host \
   /xyz/openbmc_project/state/host0 \
@@ -114,7 +115,7 @@ BootProgress        : xyz.openbmc_project.State.Boot.Progress.ProgressStages.Uns
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-6. root@qemuarm:~# busctl get-property xyz.openbmc_project.State.Host \ /xyz/openbmc_project/state/host0 \ xyz.openbmc_project.State.Host CurrentHostState
+6. root@qemuarm:~# busctl get-property xyz.openbmc_project.State.Host \ /xyz/openbmc_project/state/host0 \ xyz.openbmc_project.State.Host \ CurrentHostState
 
 s "xyz.openbmc_project.State.Host.HostState.Off"
 
