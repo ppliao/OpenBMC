@@ -16,21 +16,21 @@
   ssh -p 2222 root@127.0.0.1     //to bmc
   cat /etc/os-release   # 確認是在 OpenBMC VM
 
-2. 查看 DBus 狀態服務
+ /////// DBus 有很多服務這邊以狀態為例///////////
+2. 查看 DBus 狀態 服務 
   busctl list | grep xyz.openbmc_project.State
 
-3. 查看 HOST 物件樹與介面
+3. 查看 狀態服務裡 HOST 物件樹與介面
   busctl tree xyz.openbmc_project.State.Host
   busctl introspect xyz.openbmc_project.State.Host /xyz/openbmc_project/state/host0
 
-4. 監聽 HOST 事件
+4. 監聽 狀態服務裡 HOST 事件
   busctl monitor xyz.openbmc_project.State.Host
+////////////////////////////////////////////////
 
 -查看 property // busctl get-property <SERVICE> <OBJECT_PATH> <INTERFACE> <PROPERTY>
 5. 使用 obmcutil 小工具 查看狀態
   obmcutil state
-  obmcutil poweron
-  obmcutil powerstate
 
 6. 讀取屬性
   busctl get-property xyz.openbmc_project.State.Host \
