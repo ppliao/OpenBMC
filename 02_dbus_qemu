@@ -16,7 +16,7 @@
   ssh -p 2222 root@127.0.0.1     //to bmc
   cat /etc/os-release   # 確認是在 OpenBMC VM
 
-2. 查看 DBus 服務
+2. 查看 DBus 狀態服務
   busctl list | grep xyz.openbmc_project.State
 
 3. 查看物件樹與介面
