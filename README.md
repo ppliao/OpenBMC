@@ -16,10 +16,10 @@
 - **02_dbus_qemu.md**  
   - 進入 QEMU 模擬的 BMC 後，利用 `busctl` 學習 **DBus 服務 / 物件 / 屬性**  
   - 包含：
-    - `busctl list/tree/introspect` 查詢服務與介面  
+    - `busctl list/tree/introspect` 查詢服務與物件與介面  
     - `busctl monitor` 監聽事件  
-    - `obmcutil state` 讀取狀態  
-    - `busctl get-property \ ` 讀取屬性
+    - `obmcutil state` 讀取所有狀態  
+    - `busctl get-property \ ` 讀取物件的屬性
 
 - **03_redfish_qemu.md**  
   - 使用 `curl` 測試 **Redfish API** 介面  
