@@ -19,18 +19,18 @@
 2. 查看 DBus 狀態 服務 
   busctl list | grep xyz.openbmc_project.State
 
-3. 查看 state HOST service 的物件樹與介面
+3. 查看 HOST service 的物件樹與介面
   busctl tree xyz.openbmc_project.State.Host
   busctl introspect xyz.openbmc_project.State.Host /xyz/openbmc_project/state/host0
 
-4. 監聽 state HOST service 的事件
+4. 監聽 HOST service 的事件
   busctl monitor xyz.openbmc_project.State.Host
 
 -查看 property // busctl get-property <SERVICE> <OBJECT_PATH> <INTERFACE> <PROPERTY>
 5. 使用 obmcutil 小工具 查看狀態服務的狀態
   obmcutil state
 
-6. 讀取 state HOST service 物件(host0)的 CurrentHostState 的屬性
+6. 讀取 HOST service 物件(host0)的 CurrentHostState 的屬性
   busctl get-property xyz.openbmc_project.State.Host \
   /xyz/openbmc_project/state/host0 \
   xyz.openbmc_project.State.Host CurrentHostState
