@@ -14,7 +14,7 @@
   - 記錄必要套件、編譯流程與啟動輸出結果
 
 - **02_dbus_qemu.md**  
-  - 進入 QEMU 模擬的 BMC 後，利用 `busctl` 學習 **DBus 服務 / 物件 / 屬性**  
+  - 進入 QEMU 模擬的 BMC 後，利用 `busctl` 學習 **DBus 服務 / 物件 / 屬性** 並透過 `obmctuil` 做快速的查詢  
   - 包含：
     - `busctl list/tree/introspect` 查詢服務與物件與介面  
     - `busctl monitor` 監聽事件  
