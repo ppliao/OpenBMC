@@ -15,22 +15,16 @@
   ssh -N -L 2443:127.0.0.1:443 -p 2222 root@127.0.0.1  // let host port send to bmc 
   ssh -p 2222 root@127.0.0.1     //to bmc
   cat /etc/os-release   # 確認是在 OpenBMC VM
-
 2. 查看 DBus state service 
   busctl list | grep xyz.openbmc_project.State
-
 3. 查看 HOST service 的物件樹與介面
   busctl tree xyz.openbmc_project.State.Host
   busctl introspect xyz.openbmc_project.State.Host /xyz/openbmc_project/state/host0
-
 4. 監聽 HOST service 的事件
   busctl monitor xyz.openbmc_project.State.Host
-
 5. 使用 obmcutil 小工具 查看狀態服務的狀態
   obmcutil state
-
 -查看 property // busctl get-property <SERVICE> <OBJECT_PATH> <INTERFACE> <PROPERTY>-
-
 6. 讀取 HOST service host0物件的 CurrentHostState 的屬性
   busctl get-property xyz.openbmc_project.State.Host \
   /xyz/openbmc_project/state/host0 \
