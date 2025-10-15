@@ -1,6 +1,6 @@
 # OpenBMC Development Notes (QEMU)
 
-這個 repo 用來整理我在 **QEMU 模擬環境** 下學習與驗證 **OpenBMC** 的紀錄。  
+這個 repo 用來整理我在 **QEMU 模擬環境** 下實作 **OpenBMC** 的紀錄。  
 包含：BitBake 編譯、DBus 測試、Redfish API 操作，以及 Redfish ↔ DBus 的對照分析。  
 同時也補充 HackMD 筆記，涵蓋 FRU、Entity-Manager、Host Power Control 與整體架構。
 
