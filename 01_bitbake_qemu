@@ -3,7 +3,7 @@
 🍓 目標
 在 QEMU 上編譯並啟動 OpenBMC 映像
 
-🌸 環境
+🌸 環境 
 Host: Ubuntu 20.04 / WSL2
 QEMU target: qemuarm
 Image: obmc-phosphor-image
