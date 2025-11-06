@@ -12,8 +12,8 @@
 
 🔑 步驟
 1. SSH 進入 Guest(BMC)
-  ssh -N -L 2443:127.0.0.1:443 -p 2222 root@127.0.0.1  // let host port send to bmc 
-  ssh -p 2222 root@127.0.0.1     //to bmc
+  ssh -N -L 2443:127.0.0.1:443   // -N 不執行遠端 -L [local_poart]:[remote_host]:[remote_port]
+  ssh -p 2222 root@127.0.0.1     // -p 2222 SSH 連接埠（模擬或實體 BMC 的 SSH port）
   cat /etc/os-release   # 確認是在 OpenBMC VM
 
 2. 查看 DBus state service 
