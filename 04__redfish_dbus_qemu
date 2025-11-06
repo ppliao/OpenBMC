@@ -14,8 +14,8 @@
   ssh -p 2222 root@127.0.0.1
 
 2. Redfish 查電源狀態
-  curl -k -u root:0penBmc \
-  https://localhost:2443/redfish/v1/Systems/system \
+  curl -k -u root:0penBmc \                            //-k Ignore SSL certificate verification //-u root:openbmc 使用 HTTP Basic Auth 登入 
+  https://localhost:2443/redfish/v1/Systems/system \  //指定 BMC 的 Redfish 伺服器埠
 | jq '.PowerState'
 
 3. DBus 查電源狀態
