@@ -1,15 +1,15 @@
 ## OpenBMC Redfish ↔ DBus 實作記錄
 
-🍓 目標
+目標
 1. 透過 Redfish 與 DBus 驗證 PowerState 對照
 
-🌸 環境
+環境
   Host：Ubuntu 20.04 / WSL2
   QEMU target：qemuarm
   Image：obmc-phosphor-image
   Tools：curl、jq、busctl、journalctl、ssh
 
-🔑 步驟
+步驟
 1. SSH 進入 Guest(BMC)
   ssh -p 2222 root@127.0.0.1
 
@@ -37,10 +37,10 @@ s "xyz.openbmc_project.State.Chassis.PowerState.Off"
 
 -----------------------------------------------------------------------------
 
-🍓 目標
+目標
 1. 讀取並清空 BMC 的 EventLog / Journal，理解 Redfish 與 DBus/系統工具的分工
 
-🔑 步驟
+步驟
 1. Redfish 讀取 Journal/Entries 總數
   curl -k -u root:0penBmc \
   https://localhost:2443/redfish/v1/Managers/bmc/LogServices/Journal/Entries \
