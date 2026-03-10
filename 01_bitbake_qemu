@@ -1,16 +1,16 @@
 #OpenBMC Bitbake Build 記錄
 
-🍓 目標
+目標
 在 QEMU 上編譯並啟動 OpenBMC 映像
 
-🌸 環境 
+環境 
 Host: Ubuntu 20.04 / WSL2
 QEMU target: qemuarm
 Image: obmc-phosphor-image
 Build system: Yocto / bitbake
 Tools: git, bitbake, qemu, ssh
 
-🔑 步驟
+步驟
 1. 安裝必要套件
   sudo apt update
   sudo apt install -y gawk wget git diffstat unzip texinfo gcc build-essential \
