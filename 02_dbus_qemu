@@ -1,16 +1,16 @@
 ## OpenBMC DBus on QEMU 實驗紀錄
 
-🎯 目標
+目標
   在 QEMU 上啟動 OpenBMC，並透過 busctl 再狀態服務中 查詢、監聽與操作系統
 
-🌸 環境
+環境
   Host: Ubuntu 20.04 / WSL2
   QEMU target: qemuarm
   Image: obmc-phosphor-image
   Networking: slirp (host port forwarding)
   Tool: busctl, obmcutil, ssh
 
-🔑 步驟
+步驟
 1. SSH 進入 Guest(BMC)
   ssh -N -L 2443:127.0.0.1:443   // -N 不執行遠端 -L [local_poart]:[remote_host]:[remote_port]
   ssh -p 2222 root@127.0.0.1     // -p 2222 SSH 連接埠（模擬或實體 BMC 的 SSH port）
@@ -120,7 +120,7 @@ s "xyz.openbmc_project.State.Host.HostState.Off"
 
 
 ======================================================================================================================================================================================
-🎯 目標
+目標
  在 QEMU 上啟動 OpenBMC，並透過 DBus 工具 (busctl) 查詢有哪些 LOG Service。
 
 1. 查看 DBus Log 服務
